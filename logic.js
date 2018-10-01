@@ -64,7 +64,7 @@ const updateContact = (_id, contact) => {
   Contact.update({ _id }, contact).exec((err, status) => {
     assert.equal(null, err);
     console.info("Updated successfully");
-    db.disconnect();
+    db.close();
   });
 };
 
@@ -76,7 +76,7 @@ const deleteContact = _id => {
   Contact.remove({ _id }).exec((err, status) => {
     assert.equal(null, err);
     console.info("Deleted successfully");
-    db.disconnect();
+    db.close();
   });
 };
 
@@ -89,7 +89,7 @@ const getContactList = () => {
     assert.equal(null, err);
     console.info(contacts);
     console.info(`${contacts.length} matches`);
-    db.disconnect();
+    db.close();
   });
 };
 
