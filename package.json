@@ -1,0 +1,9 @@
+{
+  "name": "test-command-line",
+  "version": "1.0.0",
+  "description": "This is my command line project",
+  "main": "index.js",
+  "repository": "https://github.com/Reyemneirda/command-line-test.git",
+  "author": "Reyemneirda",
+  "license": "MIT"
+}
