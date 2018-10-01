@@ -6,6 +6,7 @@ const {
   addContact,
   getContact,
   getContactList,
+  greetContact,
   updateContact,
   deleteContact
 } = require("./logic");
@@ -65,6 +66,12 @@ program
   .alias("d")
   .description("Delete contact")
   .action(_id => deleteContact(_id));
+
+program
+  .command("greetContact <_id>")
+  .alias("h")
+  .description("Hello contact")
+  .action(_id => greetContact(_id));
 
 program
   .command("getContactList")

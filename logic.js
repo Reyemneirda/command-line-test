@@ -73,7 +73,7 @@ const updateContact = (_id, contact) => {
  * @returns {String} status
  */
 const deleteContact = _id => {
-  Contact.remove({ _id }).exec((err, status) => {
+  Contact.deleteOne({ _id }).exec((err, status) => {
     assert.equal(null, err);
     console.info("Deleted successfully");
     db.close();
@@ -93,11 +93,21 @@ const getContactList = () => {
   });
 };
 
+const greetContact = _id => {
+  Contact.findOne({ $or: [{ _id: _id }] }).exec((err, contact) => {
+    assert.equal(null, err);
+    console.info(contact.firstname);
+    console.info(`Hello ${contact.firstname}`);
+    db.close();
+  });
+};
+
 // Export all methods
 module.exports = {
   addContact,
   getContact,
   getContactList,
   updateContact,
+  greetContact,
   deleteContact
 };
